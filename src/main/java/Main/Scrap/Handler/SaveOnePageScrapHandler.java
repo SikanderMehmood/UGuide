@@ -5,6 +5,7 @@ import Main.Scrap.Model.LinksModel;
 import Main.Scrap.Service.SaveOnePageScrapService;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.safety.Whitelist;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -30,7 +31,10 @@ public class SaveOnePageScrapHandler {
         try {
             Document doc = Jsoup.connect(link.getLinkUrl()).get();
             String uniName = getUniNamebaseonitsUrl(link.getBaseurl());
-            Information info = new Information(uniName, link.getBaseurl(), doc.baseUri());
+            Whitelist whitelist = Whitelist.simpleText();
+            whitelist.addTags("div","a","li","ol","ul","table","address","area","article","aside","audio","base","bdi","bdo","blockquote","br","button","canvas","caption","cite","col","colgroup","data","datalist");
+            String clean = Jsoup.clean(doc.html(),whitelist);
+            Information info = new Information(uniName, link.getBaseurl(), clean);
             saveOnePageScrapService.saveOnePageDetail(info);
 
         } catch (Exception ex) {
@@ -45,8 +49,8 @@ public class SaveOnePageScrapHandler {
     }
 
     //Get all links from above "getAllLinksForOneUniversityToScrap" function and scrap each one by one
-    public void saveSinglePageScrappedTextHandler(String uniname) {
-        List<LinksModel> allSingleUniRawLinks = getAllLinksForOneUniversityToScrap(uniname);
+    public void saveSinglePageScrappedTextHandler(String uniParentUrl) {
+        List<LinksModel> allSingleUniRawLinks = getAllLinksForOneUniversityToScrap(uniParentUrl);
         for (int i = 0; i < allSingleUniRawLinks.size(); i++) {
             scrapOnePage(allSingleUniRawLinks.get(i));
         }

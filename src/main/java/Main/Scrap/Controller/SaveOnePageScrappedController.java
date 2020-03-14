@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SaveOnePageScrappedController {
 
     private SaveOnePageScrapHandler saveOnePageScrapHandler;
-
+    //Constructor
     public SaveOnePageScrappedController(SaveOnePageScrapHandler saveOnePageScrapHandler) {
         this.saveOnePageScrapHandler = saveOnePageScrapHandler;
     }
