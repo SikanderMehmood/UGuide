@@ -20,7 +20,7 @@ public class SaveOnePageScrapHandler {
     }
 
     //Getting all links from the database to be passed to function that will scrap each link one by one
-    public List<LinksModel> getAllLinksForOneUniversityToScrap(String uniname) {
+    private List<LinksModel> getAllLinksForOneUniversityToScrap(String uniname) {
 
         return saveOnePageScrapService.findAllLinksForOneUniversity(uniname);
 
@@ -38,7 +38,7 @@ public class SaveOnePageScrapHandler {
             saveOnePageScrapService.saveOnePageDetail(info);
 
         } catch (Exception ex) {
-            System.out.println(ex);
+
         }
 
     }
@@ -51,8 +51,8 @@ public class SaveOnePageScrapHandler {
     //Get all links from above "getAllLinksForOneUniversityToScrap" function and scrap each one by one
     public void saveSinglePageScrappedTextHandler(String uniParentUrl) {
         List<LinksModel> allSingleUniRawLinks = getAllLinksForOneUniversityToScrap(uniParentUrl);
-        for (int i = 0; i < allSingleUniRawLinks.size(); i++) {
-            scrapOnePage(allSingleUniRawLinks.get(i));
+        for (LinksModel allSingleUniRawLink : allSingleUniRawLinks) {
+            scrapOnePage(allSingleUniRawLink);
         }
     }
 }

@@ -3,12 +3,8 @@ package Main.Scrap.Controller;
 import Main.Scrap.Handler.ScrapHandler;
 import Main.Scrap.Model.LinksModel;
 import Main.Scrap.Model.NewUniversity;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
-import sun.awt.image.ImageWatched;
-
 import java.util.List;
-
 
 @RestController
 @RequestMapping(value = "/save")
