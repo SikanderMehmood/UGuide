@@ -9,7 +9,5 @@ Make sure you have latest version of gradle installed on your local computer.
   3) Let your IDE resolve all the dependencies 
   4) Go to your IDE and click on edit configuration and specify the main class and hit apply then save.
   5) You should see green arrow and green Debug option next to edit configuration buttion.
-  6) Clikc on debug to run the projet in debug mode.
+  6) Click on debug to run the projet in debug mode.
   
-  
-Enjoy!
