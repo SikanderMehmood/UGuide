@@ -38,8 +38,7 @@ public class ScrapService {
     }
 
     public List<NewUniversity> findAllExistingUniversities() {
-        //List<NewUniversity> allUnis=
-        return null;
+      return   newUniInfo.findAll();
     }
 
     public void saveinformationfromservice(NewUniversity model) {
@@ -68,5 +67,11 @@ public class ScrapService {
         query.addCriteria(Criteria.where("baseurl").is(value));
         List<LinksModel> links = mongoTemplate.find(query, LinksModel.class);
         return links;
+    }
+
+    public void deleteAllTheBabyLinksForThatParentUrl(String url) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("baseurl").is(url));
+        mongoTemplate.remove(query,LinksModel.class);
     }
 }

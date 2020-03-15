@@ -20,10 +20,8 @@ public class SaveOnePageScrapHandler {
     }
 
     //Getting all links from the database to be passed to function that will scrap each link one by one
-    private List<LinksModel> getAllLinksForOneUniversityToScrap(String uniname) {
-
-        return saveOnePageScrapService.findAllLinksForOneUniversity(uniname);
-
+    private List<LinksModel> getAllLinksForOneUniversityToScrap(String uniParentUrl) {
+        return saveOnePageScrapService.findAllLinksForOneUniversity(uniParentUrl);
     }
 
     //This function will get one link and will scrap it
@@ -32,8 +30,8 @@ public class SaveOnePageScrapHandler {
             Document doc = Jsoup.connect(link.getLinkUrl()).get();
             String uniName = getUniNamebaseonitsUrl(link.getBaseurl());
             Whitelist whitelist = Whitelist.simpleText();
-            whitelist.addTags("div","a","li","ol","ul","table","address","area","article","aside","audio","base","bdi","bdo","blockquote","br","button","canvas","caption","cite","col","colgroup","data","datalist");
-            String clean = Jsoup.clean(doc.html(),whitelist);
+            whitelist.addTags("div", "a", "li", "ol", "ul", "table", "address", "area", "article", "aside", "audio", "base", "bdi", "bdo", "blockquote", "br", "button", "canvas", "caption", "cite", "col", "colgroup", "data", "datalist");
+            String clean = Jsoup.clean(doc.html(), whitelist);
             Information info = new Information(uniName, link.getBaseurl(), clean);
             saveOnePageScrapService.saveOnePageDetail(info);
 
