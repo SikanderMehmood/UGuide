@@ -17,10 +17,10 @@ public class InfoParentUniController {
     }
 
     //For saving new University
-    @PutMapping(value = "/info")
+    @PostMapping(value = "/info")
     public void savenewUniversity()
     {
-        NewUniversity dummyModel = new NewUniversity("UET Lahore","https://uet.edu.pk/","Lahore");
+        NewUniversity dummyModel = new NewUniversity("Fast","https://www.nu.edu.pk/","Lahore");
         scrapHandler.savetheUniinformation(dummyModel);
     }
 

@@ -20,7 +20,7 @@ public class SaveOnePageScrappedController {
     //Scrap each link and store text in database
     @RequestMapping(value = "/savepage")
     public void saveSinglePageScrappedTextController() {
-        saveOnePageScrapHandler.saveSinglePageScrappedTextHandler("http://nu.edu.pk");
+        saveOnePageScrapHandler.saveSinglePageScrappedTextHandler("https://www.nu.edu.pk/");
     }
 
 
