@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -81,7 +82,7 @@ public class ScrapHandler {
             Elements links = Jsoup.connect(universityParentUrl).userAgent("Mozilla/5.0").get().select("a[href]");
             List<Element> newLinks = filterLinks(links);
             for (Element newLink : newLinks) {
-                LinksModel model = new LinksModel(newLink.attr("abs:href"), trim(newLink.text(), 35), newLink.baseUri());
+                LinksModel model = new LinksModel(UUID.randomUUID().toString(),newLink.attr("abs:href"), trim(newLink.text(), 35), newLink.baseUri());
                 allFilteredlinkswithtext.add(model);
             }
         } catch (Exception ex) {

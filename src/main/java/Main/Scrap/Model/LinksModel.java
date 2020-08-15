@@ -1,12 +1,17 @@
 package Main.Scrap.Model;
 
-public class LinksModel {
+import org.springframework.data.annotation.Id;
+
+public class LinksModel{
+    @Id
+    String id;
     String linkUrl;
     String linkText;
     String baseurl;
 
 
-    public LinksModel(String linkUrl, String linkText, String baseurl) {
+    public LinksModel(String id,String linkUrl, String linkText, String baseurl) {
+        this.id=id;
         this.linkText = linkText;
         this.linkUrl = linkUrl;
         this.baseurl = baseurl;
