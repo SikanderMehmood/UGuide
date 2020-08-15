@@ -20,8 +20,8 @@ public class DataController {
     public List<NewUniversity> getAllUniversities(){
         return  dataHandler.getAllUniversities();
     }
-    @GetMapping(value = "/singleUni/{id}")
-    public  NewUniversity getOneUni(@PathVariable String id){
-        return  dataHandler.getOneUni(id);
-    }
+//    @GetMapping(value = "/singleUni/{id}")
+//    public  NewUniversity getOneUni(@PathVariable String id){
+//        return  dataHandler.getOneUni(id);
+//    }
 }

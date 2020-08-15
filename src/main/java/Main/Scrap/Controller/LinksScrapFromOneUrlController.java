@@ -2,17 +2,16 @@ package Main.Scrap.Controller;
 
 import Main.Scrap.Handler.ScrapHandler;
 import Main.Scrap.Model.LinksModel;
+import Main.Scrap.Model.NewUniversity;
 import Main.Scrap.Repository.ScrapRepository;
 import Main.Scrap.Service.ScrapService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/information")
+@RequestMapping("/api")
 
 
 public class LinksScrapFromOneUrlController {
@@ -26,6 +25,14 @@ public class LinksScrapFromOneUrlController {
     @RequestMapping("/alllinks")
     public void scrapAllLinksFromThatUniversityParentUrl() {
         scrapHandler.deleteAllTheBabyLinksOfTheParentUrlForAllUniversitiesAndThenScrapNewLinksForAllUniversities();
+    }
+
+    @GetMapping(value = "/singleUni/{id}")
+    public List<LinksModel> getAllLinksForOneSingleUni(@PathVariable String id)
+    {
+        NewUniversity newUniversity =  scrapHandler.getUniversity(id);
+          return  scrapHandler.findlinksFromDBForSpecificURL(newUniversity.getUrl());
+
     }
 
 }

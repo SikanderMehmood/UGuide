@@ -8,8 +8,10 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -18,7 +20,8 @@ import java.util.regex.Pattern;
 @Component
 public class ScrapHandler {
     private ScrapService scrapService;
-
+    @Autowired
+    private DataHandler dataHandler;
 
     public ScrapHandler(ScrapService scrapService) {
         this.scrapService = scrapService;
@@ -121,5 +124,9 @@ public class ScrapHandler {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    public NewUniversity getUniversity(String id) {
+       return dataHandler.getOneUni(id);
     }
 }
