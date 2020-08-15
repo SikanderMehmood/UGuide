@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(value = "/save")
+@RequestMapping(value = "/api")
 public class InfoParentUniController {
 
     private ScrapHandler scrapHandler;
@@ -18,10 +18,10 @@ public class InfoParentUniController {
     }
 
     //For saving new University
-    @PostMapping(value = "/info")
+    @PostMapping(value = "/saveNewUni")
     public void savenewUniversity()
     {
-        NewUniversity dummyModel = new NewUniversity(UUID.randomUUID().toString(),"Fast","https://www.nu.edu.pk/","Lahore");
+        NewUniversity dummyModel = new NewUniversity(UUID.randomUUID().toString(),"Nust","http://www.nust.edu.pk/","Islamabad");
         scrapHandler.savetheUniinformation(dummyModel);
     }
 

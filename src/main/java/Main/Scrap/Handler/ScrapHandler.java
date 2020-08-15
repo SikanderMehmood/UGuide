@@ -82,7 +82,7 @@ public class ScrapHandler {
             Elements links = Jsoup.connect(universityParentUrl).userAgent("Mozilla/5.0").get().select("a[href]");
             List<Element> newLinks = filterLinks(links);
             for (Element newLink : newLinks) {
-                LinksModel model = new LinksModel(UUID.randomUUID().toString(),newLink.attr("abs:href"), trim(newLink.text(), 35), newLink.baseUri());
+                LinksModel model = new LinksModel(UUID.randomUUID().toString(),newLink.attr("abs:href"), trim(newLink.text(), 35), newLink.baseUri(),UUID.randomUUID().toString());
                 allFilteredlinkswithtext.add(model);
             }
         } catch (Exception ex) {

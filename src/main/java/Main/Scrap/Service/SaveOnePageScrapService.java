@@ -29,10 +29,10 @@ public class SaveOnePageScrapService {
         this.onePageDetail=onePageDetail;
     }
 
-    public List<LinksModel> findAllLinksForOneUniversity(String uniParentUrl) {
-        Query query = new Query();
-        query.addCriteria(Criteria.where("baseurl").is(uniParentUrl));
-        List<LinksModel> links = mongoTemplate.find(query, LinksModel.class);
+    public List<LinksModel> findAllLinksForOneUniversity() {
+//        Query query = new Query();
+//        query.addCriteria(Criteria.where("baseurl").is(uniParentUrl));
+        List<LinksModel> links = mongoTemplate.findAll(LinksModel.class);
         return links;
 
     }

@@ -2,11 +2,12 @@ package Main.Scrap.Controller;
 
 import Main.Scrap.Handler.SaveOnePageScrapHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/scrapSinglePage")
+@RequestMapping(value = "/api")
 public class SaveOnePageScrappedController {
 
     @Autowired
@@ -18,9 +19,9 @@ public class SaveOnePageScrappedController {
     //1)Give ParentUrl of university whose all sublinks will be obtained from the database
     //1) Get all the links from the database
     //Scrap each link and store text in database
-    @RequestMapping(value = "/savepage")
+    @PostMapping(value = "/scrapsavepage")
     public void saveSinglePageScrappedTextController() {
-        saveOnePageScrapHandler.saveSinglePageScrappedTextHandler("https://www.nu.edu.pk/");
+        saveOnePageScrapHandler.saveSinglePageScrappedTextHandler();
     }
 
 
