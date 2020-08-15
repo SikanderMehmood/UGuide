@@ -5,6 +5,7 @@ import Main.Scrap.Model.LinksModel;
 import Main.Scrap.Model.NewUniversity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "/save")
@@ -20,7 +21,7 @@ public class InfoParentUniController {
     @PostMapping(value = "/info")
     public void savenewUniversity()
     {
-        NewUniversity dummyModel = new NewUniversity("Fast","https://www.nu.edu.pk/","Lahore");
+        NewUniversity dummyModel = new NewUniversity(UUID.randomUUID().toString(),"Fast","https://www.nu.edu.pk/","Lahore");
         scrapHandler.savetheUniinformation(dummyModel);
     }
 
