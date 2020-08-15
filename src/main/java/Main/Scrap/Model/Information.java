@@ -1,6 +1,5 @@
 package Main.Scrap.Model;
 
-import javax.xml.soap.Text;
 import org.jsoup.nodes.Document;
 
 public class Information {
