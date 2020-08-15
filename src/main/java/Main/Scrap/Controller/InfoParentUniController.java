@@ -21,7 +21,7 @@ public class InfoParentUniController {
     @PostMapping(value = "/saveNewUni")
     public void savenewUniversity()
     {
-        NewUniversity dummyModel = new NewUniversity(UUID.randomUUID().toString(),"Nust","http://www.nust.edu.pk/","Islamabad");
+        NewUniversity dummyModel = new NewUniversity(UUID.randomUUID().toString(),"Islamia University Bahawalpur","https://www.iub.edu.pk/","Bahawalpur");
         scrapHandler.savetheUniinformation(dummyModel);
     }
 
