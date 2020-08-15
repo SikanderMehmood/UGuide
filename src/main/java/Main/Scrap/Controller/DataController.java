@@ -3,9 +3,7 @@ package Main.Scrap.Controller;
 
 import Main.Scrap.Handler.DataHandler;
 import Main.Scrap.Model.NewUniversity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,7 +18,10 @@ public class DataController {
 
     @GetMapping(value = "/allUniversities")
     public List<NewUniversity> getAllUniversities(){
-
         return  dataHandler.getAllUniversities();
+    }
+    @GetMapping(value = "/singleUni/{id}")
+    public  NewUniversity getOneUni(@PathVariable String id){
+        return  dataHandler.getOneUni(id);
     }
 }

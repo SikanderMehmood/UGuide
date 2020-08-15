@@ -20,4 +20,8 @@ public class DataHandler {
 
       return   dataService.getAllUniversities();
     }
+
+    public NewUniversity getOneUni(String id) {
+       return dataService.getOneUni(id);
+    }
 }
