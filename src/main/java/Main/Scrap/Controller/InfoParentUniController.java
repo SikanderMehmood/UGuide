@@ -3,6 +3,7 @@ package Main.Scrap.Controller;
 import Main.Scrap.Handler.ScrapHandler;
 import Main.Scrap.Model.LinksModel;
 import Main.Scrap.Model.NewUniversity;
+import Main.Scrap.Model.Person;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
@@ -19,9 +20,9 @@ public class InfoParentUniController {
 
     //For saving new University
     @PostMapping(value = "/saveNewUni")
-    public void savenewUniversity()
+    public void savenewUniversity(@RequestBody NewUniversity dummyModel)
     {
-        NewUniversity dummyModel = new NewUniversity(UUID.randomUUID().toString(),"karachi university","http://www.uok.edu.pk/","Karachi");
+       // NewUniversity dummyModel = new NewUniversity(UUID.randomUUID().toString(),"karachi university","http://www.uok.edu.pk/","Karachi");
         scrapHandler.savetheUniinformation(dummyModel);
     }
 

@@ -31,7 +31,7 @@ public class DataService {
 
     public NewUniversity getOneUni(String id) {
          NewUniversity newuni = newUniInfo.findById(id).get();
-         return new NewUniversity(newuni.getId(),newuni.getName(),newuni.getUrl(),newuni.getLocation());
+         return new NewUniversity(newuni.getName(),newuni.getUrl(),newuni.getLocation());
 
     }
 }

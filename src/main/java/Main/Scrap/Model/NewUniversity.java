@@ -12,9 +12,12 @@ public class NewUniversity {
     String url;
     String location;
 
-    public NewUniversity(String id,String name, String url, String location) {
+    public  NewUniversity(){
+
+    }
+
+    public NewUniversity(String name, String url, String location) {
         this.name = name;
-        this.id=id;
         this.location = location;
         this.url = url;
     }
