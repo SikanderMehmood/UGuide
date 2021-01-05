@@ -1,6 +1,6 @@
 #UGuide - Your Complete university Guide
 --------
-FYP Project (Scrapping all universities admission information)
+(Scrapping all universities admission information)
 This is spring boot based project !
 Follow the guidelines below to setup this project on your local computer.
 Make sure you have latest version of gradle installed on your local computer.
